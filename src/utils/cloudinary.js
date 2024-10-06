@@ -15,11 +15,9 @@ const uploadOnCloudinary= async (localfilepath)=>{
         if(!localfilepath) return null
         const uploadResult = await cloudinary.uploader.upload(
             localfilepath, {
-            public_id: 'shoes',
             resource_type: 'auto'
         }
         )
-        const urlji=uploadResult.url
         return uploadResult
     }catch(error){
         fs.unlinkSync(localfilepath) //remove uploaded file
